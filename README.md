@@ -56,7 +56,7 @@ npm 코드를 저장할 수 있는 기회가 주어지며, 원하는 프론트�
 [여기에 소개글이 있습니다.](http://alistapart.com/article/why-sass).
 
 * HMR 사용 - 생산성이 향상됩니다. 코드를 저장할 때 마다 페이지의 리프레시가 자동으로 이루어집니다.
-코드를 작성하는 동안 페이지의 상태를 최신으로 유지해야하는 경우는 정말 편리합니다.
+코드를 작성하는 동안 페이지의 상태를 최신으로 유지해야하는 경우 정말 편리합니다.
 
 * 자바스크립트로 모든 유형의 파일을 포함 - 추가적인 빌드 도구의 수를 줄일 수 있고,
 프로그램적으로 파일을 사용 및 수정할 수 있습니다.
@@ -79,7 +79,7 @@ Webpack을 실행하려면:
 
     webpack
 
-Webpack에서 파일의 상태가 변경되면 자동으로 구축하려는 경우:
+Webpack에서 파일의 상태가 변경되면 자동으로 빌드하려는 경우:
 
     webpack --watch
 
@@ -233,8 +233,8 @@ module.exports = {
 * [entry](https://webpack.github.io/docs/configuration.html#entry) - 번들의 엔트리 포인트로써 [번들하기](#번들하기)
 색션에서 이미 논의했습니다. Webpack은 여러 번들을 생성하는 진입 점을을 허용하기 때문에 배열입니다.
 
-* [output](https://webpack.github.io/docs/configuration.html#output) - Webpack의 최종 결과물의 형태를 명시합니다.
-  * [path](https://webpack.github.io/docs/configuration.html#output-path) - 어디에 번들 파일을 넣을 것인지를 지정합니다.
+* [output](https://webpack.github.io/docs/configuration.html#output) - Webpack의 최종 결과물이 되는 형태를 명시합니다.
+  * [path](https://webpack.github.io/docs/configuration.html#output-path) - 어디에 번들 파일을 위치시킬 것인지를 지정합니다.
   * [filename](https://webpack.github.io/docs/configuration.html#output-filename) - 번들파일의 이름을 지정합니다.
 
 이제 `webpack` 명령을 실행하면, dit라는 폴더에 `bundle.js` 파일을 생성합니다.
@@ -244,7 +244,7 @@ module.exports = {
 [에제 3](https://github.com/firejune/WebpackTutorial/tree/master/example3)
 
 모든 파일의 번들에 Webpack을 사용했고 모두 합쳐서 900KB 짜리 파일을 얻었다고 가정해 봅시다.
-덩치가 큰 문제는 번들은 압축(minify)으로 개선될 수 있습니다. 이 작업을 수행하려면 앞서 언급했던  
+덩치가 큰 문제는 번들 파일의 압축으로 개선될 수 있습니다. 이 작업을 수행하려면 앞서 언급했던  
 [UglifyJsPlugin](https://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin)라는
 플러그인을 사용합니다.
 
@@ -286,10 +286,10 @@ module.exports = {
 900KB 짜리 파일을 200KB로 줄일 수 있습니다.
 
 또한 [OrderOccurencePlugin](https://webpack.github.io/docs/list-of-plugins.html#occurrenceorderplugin)
-플러그인을 추가 할 수도 있습니다.
+플러그인을 추가할 수도 있습니다.
 
 > 이 플러그인은 발생 횟수에 따라서 모듈 및 청크 id를 할당합니다. 자주 사용되는 id가 낮은(짧은) id를 얻습니다.
-이 id는 예측(predictable)이 가능하며, 전체 파일 크기로 줄이는데 추천됩니다.
+이 id는 예측(predictable)이 가능하며, 전체 파일 크기를 줄이는데 추천됩니다.
 
 솔직히 말해서 기반 메커니즘이 어떻게 작동하는지 잘 모르지만,
 [Webpack2 베타 버전에는 기본적으로 포함](https://gist.github.com/sokra/27b24881210b56bbaff7) 되어 있다고합니다.
@@ -342,7 +342,7 @@ MyDirectory
 
 #### 학습 내용
 
-1. [로더 이해하기](#로더-이해하기) - 번들에 CSS를 추가할 수 있도록 로더를 추가하해 볼 것입니다.
+1. [로더 이해하기](#로더-이해하기) - 번들에 CSS를 추가할 수 있도록 로더를 추가해 볼 것입니다.
 2. [플러그인 추가하기](#플러그인-추가하기) - HTML 파일을 생성하고 사용할 수 있도록 도와주는 플러그인을 추가해 볼 것입니다.
 3. [개발서버 구성하기](#개발서버-구성하기) - `development`와 `production`을 구분한 Webpack의 구성 파일을 분할하고
 `webpack-dev-server`를 이용하여 HMR을 활성화해 볼 것입니다.
