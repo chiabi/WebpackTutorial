@@ -68,7 +68,7 @@ Webpack의 모든 기능을 사용하려면 전역 설치를 해야합니다:
 
     npm install -g webpack
 
-그러나 Webpack의 일부 기능이나 최적화 플러그인 정도만 필요한 경우라면 로컬에 설치되어 있어야합니다:
+그러나 Webpack의 일부 기능이나 최적화 플러그인 정도만 필요한 경우라면 로컬에 설치합니다:
 
     npm install --save-dev webpack
 
