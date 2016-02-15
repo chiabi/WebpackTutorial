@@ -1,4 +1,4 @@
-# Beginner Webpack Tutorial Part 2 - Using Webpack with Babel :zap:
+# 초보자용 Webpack 튜토리얼 파트 2 - Webpack과 Babel을 같이 사용하기 :zap:
 
 Now that we learned the basics of using webpack, we're going to learn to leverage babel 6 in order
 to write ES6, the new specification of javascript.
