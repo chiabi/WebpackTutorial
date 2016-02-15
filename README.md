@@ -581,7 +581,7 @@ module.exports = {
 그래서 `webpack.optimize` 플러그인이 없습니다.
 
 2. 개발 설정은 개발 서버에 필요한 것만 작성합니다. 보다 자세한 내용을 
-[여기](https://webpack.github.io/docs/webpack-dev-server.html).에서 볼 수 있습니다.
+[여기](https://webpack.github.io/docs/webpack-dev-server.html)에서 볼 수 있습니다.
 
 요약:
 
@@ -629,7 +629,7 @@ module.exports = {
 
 * [devtool](https://webpack.github.io/docs/configuration.html#devtool) - 디버깅을 지원합니다.
 오류가 발생하는 경우, 크롬 개발자 콘솔과 같은 도구를 이용하여 실수한 위치를 확인하는데 도움이 됩니다.
-`source-map`과 `cheap-eval-source-map`의 차이에 대해서는 문서를 읽고도 이해하기가 조금 어려웠습니다.
+`source-map`과 `cheap-eval-source-map`의 차이에 대해서는 문서를 읽고도 이해하기가 조금 어려웠지만,
 확실히 알 수 있었던 것은 `source-map`이 제품용 모드에서 오버헤드가 많다는 점과,
 `cheap-eval-source-map`이 작은 오버헤드를 가지고 있으며, 이것은 단지 개발을 위한 것이라는 점입니다.
 
@@ -665,29 +665,29 @@ npm run build
 npm run dev
 ```
 
-이제 `npm run dev` 명령을 실헹하고 `http://localhost:8080`으로 이동하여 작업된 웹사이트를 볼 수 있습니다.
+`npm run dev` 명령을 실헹하고 `http://localhost:8080`으로 이동하여 작업된 웹사이트를 볼 수 있습니다.
 
 **노트:** 이 부분을 테스트하는 동안 `index.html` 파일을 수정할 때 서버가 핫-리로드 되지 않는 것을 깨달았습니다. 
 이 문제에 대한 해결책은 [html-reload](https://github.com/firejune/WebpackTutorial/tree/master/html-reload)에 
-있습니다. 이것은 Webpack 옵션에 대하여 조금 더 유용한 정보를 얻을 수 있어 추천합니다. 너무 사소한 내용이고 
+있습니다. 이것은 Webpack 옵션에 대하여 조금 더 유용한 정보를 얻을 수 있어서 읽어보길 추천합니다. 너무 사소한 내용이고 
 튜토리얼을 너무 길게 쓰는 느낌이 들었기 때문에 별도로 구분헸습니다.
 
 #### 코딩 시작하기
 
 [에제 7](https://github.com/firejune/WebpackTutorial/tree/master/example7)
 
-많은 사람들이 Webpack에 당황해 할 것입니다. 이유는 자바스크립트 코드를 직접 작성하는 지점까지의 
-여러 과정을 모두 통과해야 한다는 사실이입니다; 이제 튜토리얼의 클라이막스에 도착했습니다.
+많은 사람들이 Webpack에 당황해 할 것 같습니다. 이유는 실제 작업용 자바스크립트 코드를 작성하기까지 
+여지것 공부했던 여러 과정을 모두 숙지해야 하기 때문입니다; 다행히도 이 튜토리얼의 클라이막스에 도달했습니다.
 
 `npm run dev` 명령 실행 및 `http://localhost:8080`를 하지 않은 경우에 수행합니다.
-개발 서버에 핫-리로드를 설정하는 것은 단순히 보기만을 위한 것은 아닙니다.
-프로젝트의 일부를 편집하고 저장하는 매 시간 브라우저는 변경 사항을 표시하도록 다시 로드합니다.
+개발 서버에 핫-리로드를 설정하는 것은 단순히 보기만을 위한 것이 아닙니다.
+프로젝트의 일부를 편집하고 저장하는 매 시간 변경사항을 표시하도록 브라우저는 다시 로드합니다.
 
 이제 이것을 프론트엔드에서 사용할 수 있는 방법을 보여주기 위해 몇몇 npm 패키지를 필요로 합니다.
 
     npm install --save pleasejs
 
-PleaseJS는 임의 색생 발생기입니다. 특정 버튼을 이용해 div의 색상을 변경해 보겠습니다.
+PleaseJS는 임의 색상 발생기입니다. 특정 버튼을 이용해 div의 색상을 변경해 보겠습니다.
 
 ```javascript
 // index.js
@@ -709,7 +709,8 @@ function changeColor() {
 button.addEventListener('click', changeColor)
 ```
 
-흥미롭게도, [핫 모듈 교체가 작동하려면](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html#what-is-needed-to-use-it) 다음과 같은 코드를 포함해야합니다:
+흥미롭게도, [핫 모듈 교체가 작동하려면](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html#what-is-needed-to-use-it) 
+다음과 같은 코드를 포함해야합니다:
 
 ```javascript
 if (module.hot) {
@@ -722,15 +723,15 @@ if (module.hot) {
 이제 끝입니다!
 
 **노트:** 예제를 통해 CSS를 적용하면서 꺼림칙한 부분은,
-CSS가 자바스크립트 파일에 있다는 사실이 마음에 들지 않습니다.
-다른 파일에 CSS를 넣어는 방법에 대한 자세한 설명을 별도로 작성했습니다.
-[css-extract](https://github.com/firejune/WebpackTutorial/tree/master/css-extract)를 참조하세요.
+CSS가 자바스크립트 파일에 있다는 사실입니다.
+다른 파일에 CSS를 넣는 방법에 대한 자세한 설명을 별도로 작성했습니다.
+[css-extract](https://github.com/firejune/WebpackTutorial/tree/master/css-extract)를 확인하세요.
 
 ## 결론
 
-축하합니다! div의 색상을 변경하는 버튼을 만들기까지 모두 수행했습니다! Webpack, 참 훌륭하죠?
+축하합니다! div의 색상을 변경하는 버튼을 만들기까지 모두 학습했습니다! Webpack, 참 훌륭하죠?
 
-Webpack은 처음 접한 모듈 번들러입니다. 그리고 매우 유요한 도구였습니다.
+Webpack은 처음 접한 모듈 번들러입니다. 그리고 매우 유용한 도구였습니다.
 파트 1에서는 가장 일반적인 사용 사례를 다루었지만, 아직 ES6과 React를 연결하여 
 사용하는 방법에 대해서는 다루지 않았습니다.
 
