@@ -256,10 +256,10 @@ module.exports = {
 <p>이제, <code>webpack</code> 명령을 실행하면, <code>UglifyJsPlugin</code>에 의해 모든 공백을 제거하는 등의 과정을 거쳐
 900KB 짜리 파일을 200KB로 줄일 수 있습니다.</p>
 
-<p>또한 <a href="https://webpack.github.io/docs/list-of-plugins.html#occurrenceorderplugin">OrderOccurencePlugin</a>을 추가할 수도 있습니다.</p>
+<p>또한 <a href="https://webpack.github.io/docs/list-of-plugins.html#occurrenceorderplugin">OccurrenceOrderPlugin</a>을 추가할 수도 있습니다.</p>
 
 <blockquote>이 플러그인은 발생 횟수에 따라서 모듈 및 청크 id를 할당합니다. 자주 사용되는 id가 낮은(짧은) id를 얻습니다.
-이 id는 예측(predictable)이 가능하며, 전체 파일 크기를 줄이는데 추천됩니다.</blockquote>
+이 id는 예측(predictable)이 가능하며, <del>전체 파일 크기를 줄이는데</del>(역자주: 파일 용량을 줄이는 것과는 무관함) 추천됩니다.</blockquote>
 
 <p>솔직히 말해서 기반 메커니즘이 어떻게 작동하는지 잘 모르지만,
 <a href="https://gist.github.com/sokra/27b24881210b56bbaff7">Webpack2 베타 버전에는 기본으로 포함</a> 되어 있다고 합니다.</p>
@@ -678,14 +678,14 @@ function changeColor() {
 
 button.addEventListener('click', changeColor)</code></pre>
 
-<p>흥미롭게도, <a href="https://webpack.github.io/docs/hot-module-replacement-with-webpack.html#what-is-needed-to-use-it">핫 모듈 교체가 작동하려면</a>
+<p>흥미롭게도, <a href="https://webpack.github.io/docs/hot-module-replacement-with-webpack.html#what-is-needed-to-use-it">HMR이 작동하려면</a>
 다음과 같은 코드를 포함해야 합니다:</p>
 
 <pre class="javascript"><code>if (module.hot) {
   module.hot.accept()
 }</code></pre>
 
-<p>모듈 또는 모듈의 부모입니다.</p>
+<p>모듈 또는 상위 모듈에서요.</p>
 
 <p>이제 마지막입니다!</p>
 

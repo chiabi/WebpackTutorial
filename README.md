@@ -283,9 +283,9 @@ module.exports = {
 이제, `webpack` 명령을 실행하면, `UglifyJsPlugin`에 의해 모든 공백을 제거하는 등의 과정을 거쳐
 900KB 짜리 파일을 200KB로 줄일 수 있습니다.
 
-또한 [OrderOccurencePlugin](https://webpack.github.io/docs/list-of-plugins.html#occurrenceorderplugin)을 추가할 수도 있습니다.
+또한 [OccurenceOrderPlugin](https://webpack.github.io/docs/list-of-plugins.html#occurrenceorderplugin)을 추가할 수도 있습니다.
 
-> 이 플러그인은 발생 횟수에 따라서 모듈 및 청크 id를 할당합니다. 자주 사용되는 id가 낮은(짧은) id를 얻습니다. 이 id는 예측(predictable)이 가능하며, 전체 파일 크기를 줄이는데 추천됩니다.
+> 이 플러그인은 발생 횟수에 따라서 모듈 및 청크 id를 할당합니다. 자주 사용되는 id가 낮은(짧은) id를 얻습니다. 이 id는 예측(predictable)이 가능하며, ~~전체 파일 크기를 줄이는데~~(역자주: 파일 용량을 줄이는 것과는 무관함) 추천됩니다.
 
 솔직히 말해서 기반 메커니즘이 어떻게 작동하는지 잘 모르지만,
 [Webpack2 베타 버전에는 기본으로 포함](https://gist.github.com/sokra/27b24881210b56bbaff7) 되어 있다고 합니다.
@@ -682,7 +682,7 @@ function changeColor() {
 button.addEventListener('click', changeColor)
 ```
 
-흥미롭게도, [핫 모듈 교체가 작동하려면](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html#what-is-needed-to-use-it) 다음과 같은 코드를 포함해야 합니다:
+흥미롭게도, [HMR이 작동하려면](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html#what-is-needed-to-use-it) 다음과 같은 코드를 포함해야 합니다:
 
 ```javascript
 if (module.hot) {
@@ -690,7 +690,7 @@ if (module.hot) {
 }
 ```
 
-모듈 또는 모듈의 부모입니다.
+모듈 또는 상위 모듈에서요.
 
 이제 마지막입니다!
 
