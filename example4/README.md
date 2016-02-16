@@ -1,9 +1,11 @@
-Earlier in the tutorial I mentioned [loaders](#loaders). These will help us require non-js files in
-our code. In this case, the only loader we will need is the css loader. First we need to install the loader:
+# 예제 4 - 로더 이해하기
 
-    npm install --save-dev css-loader
+이전 튜토리얼에서 [로더](#로더)에 대해 언급했습니다.
+이제 자바스크립트가 아닌 파일을 다루어 보기로 하겠습니다. 스타일 로더와 CSS 로더가 필요하게 되었습니다. 먼저 로더를 설치해 봅시다:
 
-Now that it's installed we can tweak our config to include the css loader:
+    npm install --save-dev style-loader css-loader
+
+설치된 CSS 로더를 포함하도록 설정 파일을 조정해 봅시다:
 
 ```javascript
 // webpack.config.js
@@ -33,18 +35,17 @@ module.exports = {
 }
 ```
 
-Going over the new properties one by one:
+새롭게 보이는 속성을 각각 살펴봅시다:
 
-* [modules](http://webpack.github.io/docs/configuration.html#module) - Options affecting your files
-  * [loaders](http://webpack.github.io/docs/configuration.html#module-loaders) - An array of loaders that we specify for our application
-    * test - A regular expression to match the loader with a file
-    * loaders - Which loaders to use for files that match the test
+* [module](http://webpack.github.io/docs/configuration.html#module) - 이 옵션은 파일에 영향을 줍니다.
+  * [loaders](http://webpack.github.io/docs/configuration.html#module-loaders) - 애플리케이션에서 사용할 로더를 배열로 지정합니다.
+    * test - 정규식을 이용해서 로더에 사용될 파일을 검출합니다.
+    * loaders - 일치하는 파일에 사용되는 로더를 호출합니다.
 
-This time when you run `webpack`, if we `require` a file that ends in `.css`, then we will apply
-the `style` and `css` loaders to it, which adds the CSS to the bundle.
+`webpack` 명령을 실행하면, `.css`로 확장자를 가진 파일을 `require`하는 경우,
+이 파일은 `style`과 `css` 로더에 적용되고, 번들에 CSS가 추가됩니다.
 
-If we didn't have the loaders,
-then we would get an error like this:
+로더를 가지고 있지 않은 경우, 다음과 같은 오류를 보게 될 것입니다:
 
 ```
 ERROR in ./test.css
@@ -53,13 +54,13 @@ Line 1: Unexpected token {
 You may need an appropriate loader to handle this file type.
 ```
 
-**Optional**
+**선택사항**
 
-If you want to use SCSS instead of CSS you would need to run:
+만약 CSS 대신 SCSS를 사용하는 경우 다음과 같이 실행해야 합니다:
 
     npm install --save-dev sass-loader node-sass webpack
 
-and instead your loader would be written as
+그리고 로더는 다음과 같이 작성되어야 합니다.
 
 ```javascript
 {
@@ -68,6 +69,7 @@ and instead your loader would be written as
 }
 ```
 
-The process is similar for LESS.
+이 과정은 LESS도 비슷합니다.
 
-An important aspect to recognize is that there is an *order* to which these loaders need to be specified. In the above example, the `sass` loader is first applied to your `.scss` files, then the `css` loader, and finally the `style` loader. As you can see, the pattern is that these loaders are applied from right to left.
+중요한 것은 지정할 *순서* 가 존재한다는 것입니다. 위의 예제에서 `sass` 로더에 가장 먼저 `.scss` 파일을 적용하고,
+그 다음으로 `css` 로더, 마지막에 `style` 로더에 적용합니다. 즉, 순서 패턴은 오른쪽에서 왼쪽으로 로더에 적용되는 것입니다.
